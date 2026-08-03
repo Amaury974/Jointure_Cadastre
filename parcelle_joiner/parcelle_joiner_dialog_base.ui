@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ParcelleJoinerDialogBase</class>
+ <widget class="QDialog" name="ParcelleJoinerDialogBase">
+  <property name="windowTitle">
+   <string>Joindre parcelles cadastrales</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+
+   <item>
+    <widget class="QGroupBox" name="groupSource">
+     <property name="title">
+      <string>1. Tableau de données à joindre</string>
+     </property>
+     <layout class="QGridLayout" name="gridSource">
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelTable">
+        <property name="text"><string>Fichier ou couche :</string></property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QgsFileWidget" name="mFileWidgetTable" native="true"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelColonneNumero">
+        <property name="text"><string>Colonne "numéro de parcelle" :</string></property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QComboBox" name="mComboColonneNumero"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QGroupBox" name="groupCadastre">
+     <property name="title">
+      <string>2. Couche de parcelles cadastrales</string>
+     </property>
+     <layout class="QVBoxLayout" name="vboxCadastre">
+      <item>
+       <widget class="QRadioButton" name="mRadioFtp">
+        <property name="text"><string>Utiliser la couche de référence (serveur FTP)</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="mRadioLocal">
+        <property name="text"><string>Utiliser ma propre couche cadastrale</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QgsMapLayerComboBox" name="mComboLayerCadastre">
+        <property name="enabled"><bool>false</bool></property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="hboxChampCadastre">
+        <item>
+         <widget class="QLabel" name="labelChampCadastre">
+          <property name="text"><string>Champ "numéro de parcelle" dans le cadastre :</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="mComboChampCadastre"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QGroupBox" name="groupNormalisation">
+     <property name="title">
+      <string>3. Correction / uniformisation des numéros de parcelles</string>
+     </property>
+     <layout class="QVBoxLayout" name="vboxNormalisation">
+      <item>
+       <widget class="QCheckBox" name="mCheckSupprEspaces">
+        <property name="text"><string>Supprimer espaces / tirets / points parasites</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mCheckMajuscules">
+        <property name="text"><string>Mettre les sections en majuscules</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mCheckPadding">
+        <property name="text"><string>Compléter les zéros manquants (padding)</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mButtonApercu">
+        <property name="text"><string>Aperçu de la normalisation…</string></property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QProgressBar" name="mProgressBar">
+     <property name="value"><number>0</number></property>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QPlainTextEdit" name="mLogOutput">
+     <property name="readOnly"><bool>true</bool></property>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFileWidget</class>
+   <extends>QWidget</extends>
+   <header>qgis.gui</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QWidget</extends>
+   <header>qgis.gui</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

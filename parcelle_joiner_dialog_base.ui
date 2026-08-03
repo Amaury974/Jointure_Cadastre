@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ParcelleJoinerDialogBase</class>
+ <widget class="QDialog" name="ParcelleJoinerDialogBase">
+  <property name="windowTitle">
+   <string>Jointure Cadastre</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+
+   <item>
+    <widget class="QGroupBox" name="groupSource">
+     <property name="title">
+      <string>1. Tableau de données à joindre (CSV, XLSX ou ODS)</string>
+     </property>
+     <layout class="QGridLayout" name="gridSource">
+      <item row="0" column="0">
+       <widget class="QLabel" name="labelTable">
+        <property name="text"><string>Fichier :</string></property>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QgsFileWidget" name="mFileWidgetTable" native="true"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="labelFeuille">
+        <property name="text"><string>Feuille (si classeur XLSX/ODS) :</string></property>
+       </widget>
+      </item>
+      <item row="1" column="1" colspan="2">
+       <widget class="QComboBox" name="mComboFeuille"/>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QGroupBox" name="groupColonnes">
+     <property name="title">
+      <string>2. Disposition des colonnes (commune / section / numéro)</string>
+     </property>
+     <layout class="QVBoxLayout" name="vboxColonnes">
+      <item>
+       <widget class="QPushButton" name="mButtonDetecter">
+        <property name="text"><string>Détecter automatiquement les colonnes</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="mRadioModeSepare">
+        <property name="text"><string>3 colonnes séparées : commune / section / numéro</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="mRadioModeCombine">
+        <property name="text"><string>Commune à part, section+numéro combinés dans une autre colonne</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="mRadioModeToutEnUn">
+        <property name="text"><string>Tout dans une seule colonne (commune + section + numéro)</string></property>
+       </widget>
+      </item>
+
+      <item>
+       <layout class="QGridLayout" name="gridColonnes">
+        <item row="0" column="0">
+         <widget class="QLabel" name="labelColCommune">
+          <property name="text"><string>Colonne commune :</string></property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QComboBox" name="mComboColCommune"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="labelColParcelleCombinee">
+          <property name="text"><string>Colonne "section+numéro" :</string></property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QComboBox" name="mComboColParcelleCombinee"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="labelColSection">
+          <property name="text"><string>Colonne section :</string></property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QComboBox" name="mComboColSection"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="labelColNumero">
+          <property name="text"><string>Colonne numéro :</string></property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QComboBox" name="mComboColNumero"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QGroupBox" name="groupCadastre">
+     <property name="title">
+      <string>3. Couche de parcelles cadastrales</string>
+     </property>
+     <layout class="QVBoxLayout" name="vboxCadastre">
+      <item>
+       <widget class="QRadioButton" name="mRadioAuto">
+        <property name="text"><string>Récupérer automatiquement les communes nécessaires (cadastre.data.gouv.fr — DINUM/Etalab)</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="hboxFtp">
+        <item>
+         <widget class="QRadioButton" name="mRadioFtp">
+          <property name="text"><string>Utiliser la couche de référence (serveur FTP)</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="mButtonParametresFtp">
+          <property name="text"><string>Paramètres FTP...</string></property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="mRadioLocal">
+        <property name="text"><string>Utiliser ma propre couche cadastrale</string></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QgsMapLayerComboBox" name="mComboLayerCadastre">
+        <property name="enabled"><bool>false</bool></property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="hboxChampCadastre">
+        <item>
+         <widget class="QLabel" name="labelChampCadastre">
+          <property name="text"><string>Champ "numéro de parcelle" dans le cadastre :</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="mComboChampCadastre"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QGroupBox" name="groupNormalisation">
+     <property name="title">
+      <string>4. Options de normalisation</string>
+     </property>
+     <layout class="QVBoxLayout" name="vboxNormalisation">
+      <item>
+       <widget class="QCheckBox" name="mCheckMajuscules">
+        <property name="text"><string>Mettre les sections en majuscules</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="mCheckPadding">
+        <property name="text"><string>Compléter les zéros manquants (padding)</string></property>
+        <property name="checked"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mButtonApercu">
+        <property name="text"><string>Aperçu du traitement (communes, découpage, doublons)…</string></property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QProgressBar" name="mProgressBar">
+     <property name="value"><number>0</number></property>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QPlainTextEdit" name="mLogOutput">
+     <property name="readOnly"><bool>true</bool></property>
+    </widget>
+   </item>
+
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QgsFileWidget</class>
+   <extends>QWidget</extends>
+   <header>qgis.gui</header>
+  </customwidget>
+  <customwidget>
+   <class>QgsMapLayerComboBox</class>
+   <extends>QWidget</extends>
+   <header>qgis.gui</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
