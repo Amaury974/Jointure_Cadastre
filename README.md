@@ -1,5 +1,7 @@
 # Jointure Cadastre — plugin QGIS
 
+*Développé intégralement avec Claude.ai*
+
 Plugin QGIS 3.x permettant de joindre automatiquement un tableau de données
 (CSV, XLSX ou ODS) à une couche de parcelles cadastrales, avec :
 - reconnaissance automatique des communes de La Réunion (24 communes,
