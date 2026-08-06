@@ -3,19 +3,19 @@ name=Jointure Cadastre
 qgisMinimumVersion=3.16
 description=Joint un tableau de données à une couche de parcelles cadastrales, avec normalisation des numéros de parcelles.
 version=0.1.0
-author=Votre Nom
-email=vous@exemple.fr
+author=Amaury Jorant - Chambre d'Agriculture de La Réunion
+email=amaury.jorant@reunion.chambagri.fr
 
-about=Ce plugin permet de joindre automatiquement un tableau de données (CSV/XLSX) à une couche de parcelles cadastrales, via une étape de correction/uniformisation des numéros de parcelles. La couche cadastrale de référence peut être téléchargée depuis un serveur FTP, ou remplacée par une couche locale fournie par l'utilisateur.
+about=Ce plugin permet de joindre automatiquement un tableau de données (CSV/XLSX) à une couche de parcelles cadastrales, via une étape de correction/uniformisation des numéros de parcelles. La couche cadastrale de référence peut être téléchargée via cadastre.gouv.fr, depuis un serveur FTP, ou remplacée par une couche locale fournie par l'utilisateur.
 
-tracker=https://github.com/votre-compte/parcelle_joiner/issues
-repository=https://github.com/votre-compte/parcelle_joiner
+tracker=https://github.com/Amaury974/Jointure_Cadastre/issues
+repository=https://github.com/Amaury974/Jointure_Cadastre
 
 hasProcessingProvider=yes
 
 tags=cadastre,parcelle,jointure,join,ftp,normalisation
 
-homepage=https://github.com/votre-compte/parcelle_joiner
+homepage=https://github.com/Amaury974/Jointure_Cadastre
 category=Vector
 icon=icon.png
 experimental=True
